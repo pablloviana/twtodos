@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deletar Tarefa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: sans-serif;
+            background: #76d3f0;
+            text-align: center;
+            margin: 0;
+            padding-bottom: 80px;
+            color: rgb(19, 18, 18);
+        }
+
+        .navbar {
+            background-color: #333;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .navbar a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            color: #4CAF50;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .social-links {
+            margin-top: 10px;
+        }
+
+        .social-links a {
+            color: white;
+            margin: 0 10px;
+            font-size: 20px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #4CAF50;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar"></div>
+
+    {% block content %}
+    <div>
+        <div>
+            <h1>Deletar Tarefa</h1>
+        </div>
+        <div>
+            <p>Tem certeza que deseja deletar a tarefa <strong>{{ object.nome_tarefa }}?</strong></p>
+            <form method="post">
+                {% csrf_token %}
+                <div>
+                    <button type="submit">Apagar tarefa</button>
+                    <a href="{% url 'atualizar' pk=object.pk %}">
+                        <button type="button">Editar nome da tarefa</button>
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+    {% endblock %}
+
+    <footer>
+        <p>&copy; 2024 Pabllo Viana - Todos os direitos reservados.</p>
+        <div class="social-links">
+            <a href="https://instagram.com/pablloviana_" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://tiktok.com/@pabllocode" target="_blank"><i class="fab fa-tiktok"></i></a>
+            <a href="https://youtube.com/@pablloviana_" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://wa.me/5594981318452" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://t.me/5594981318452" target="_blank"><i class="fab fa-telegram"></i></a>
+            <a href="https://github.com/pablloviana/pablloviana" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+    </footer>
+
+</body>
+</html>
