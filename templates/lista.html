@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-Brasil">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista</title>
+</head>
+<body>
+    
+  
+   
+   
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+
+        body {
+            font-family: sans-serif;
+            background: #47289d;
+            text-align: center;
+            margin: 0;
+            padding-bottom: 80px;
+        }
+
+
+        h1 {
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .navbar {
+            background-color: #333;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .navbar a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+
+        .navbar a:hover {
+            color: #4CAF50;
+        }
+
+        .container {
+            width: 500px;
+            margin: auto;
+            text-align: center;
+        }
+
+
+        button {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+
+
+        button a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        button i {
+            margin-right: 8px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        li {
+            background-color: #f5f5f5;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            width: 300px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        a:hover {
+            color: #007BFF;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        
+            width: 100%;
+            
+        }
+
+
+.wrapper {
+min-height: 100%;
+display: flex;
+flex-direction: column;
+
+}
+.content {
+    flex: 1;
+}
+
+
+
+        .social-links {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center; 
+        }
+
+        .social-links a {
+            color: white;
+            margin: 0 10px;
+            font-size: 20px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #4CAF50;
+        }
+
+        .nova-tarefa {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="#">Gerenciador de Tarefas</a>
+    </div>
+
+    <div class="container">
+        <h1>Lista de Tarefas</h1>
+        <div class="nova-tarefa">
+            <button type="button"><a href="{% url 'nova' %}"><i class="fas fa-plus"></i>Nova Tarefa</a></button>
+        </div>
+        
+        <ul>
+            {% if tarefas %}
+                {% for tarefa in tarefas %}
+                    <li>
+                        <a href="{% url 'deletar' tarefa.pk %}">{{ tarefa.nome_tarefa }}</a>
+                        <a href="{% url 'deletar' tarefa.pk %}" class="delete-button" style="color: red;">Excluir</a>
+                    </li>
+                {% endfor %}
+            {% else %}
+                <p>Nenhuma tarefa encontrada.</p>
+            {% endif %}
+        </ul>
+    </div>
+
+<br><br><br><br><br><br>
+<div class="wrapper">
+    <div class="content">
+</div>
+    <footer>
+        <p>&copy; 2024 Pabllo Viana - Todos os direitos reservados.</p>
+        <div class="social-links">
+            <a href="https://instagram.com/pablloviana_" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://tiktok.com/@pabllocode" target="_blank"><i class="fab fa-tiktok"></i></a>
+            <a href="https://youtube.com/@pablloviana_" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://wa.me/5594981318452" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://t.me/5594981318452" target="_blank"><i class="fab fa-telegram"></i></a>
+            <a href="https://github.com/pablloviana/pablloviana" target="_blank"><i class="fab fa-github"></i></a>
+        
+       </div>
+    </footer>
+</div>
+</body>
+</html>
